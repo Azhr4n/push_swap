@@ -36,15 +36,19 @@ CFLAGS += -I./includes
 all: checker push_swap
 
 checker: $(OBJS) $(OBJS_CHECKER)
+	cd libft && make
 	$(CC) $(CFLAGS) $(OBJS) $(OBJS_CHECKER) libft/libft.a -o $@
 
 push_swap: $(OBJS) $(OBJS_PS)
+	cd libft && make
 	$(CC) $(CFLAGS) $(OBJS) $(OBJS_PS) libft/libft.a -o $@
 
 clean:
+	cd libft && make clean
 	/bin/rm -f $(OBJS) $(OBJS_CHECKER) $(OBJS_PS)
 
 fclean: clean
+	cd libft && make fclean
 	/bin/rm -f checker push_swap
 
 re: fclean all

@@ -27,12 +27,15 @@ void	preset_pile(t_pile *pile_a, t_pile *pile_b)
 
 void	free_2d(char **array)
 {
+	char	**ptr;
+
+	ptr = array;
 	while (*array)
 	{
 		free(*array);
 		array++;
 	}
-	free(array);
+	free(ptr);
 }
 
 int		put_in_list(t_pile *pile, char *str)
@@ -68,14 +71,15 @@ int		process_arg(t_pile *pile, char **av)
 
 	while (*av)
 	{
-		put_in_list(pile, *av);
+		if (!put_in_list(pile, *av))
+			return (0);
 		av++;
 	}
 	offset = pile->list;
-	while (((t_list *)offset->next)->next)
+	while (offset->next)
 	{
 		ptr = offset->next;
-		while (ptr->next)
+		while (ptr)
 		{
 			if (offset->value == ptr->value)
 				return (0);

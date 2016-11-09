@@ -67,6 +67,7 @@ int		executing(t_pile *pile_a, t_pile *pile_b, t_char_list *commands)
 		exec_commands(pile_a, pile_b, ptr->value);
 		ptr = ptr->next;
 	}
+	free_clist(commands);
 	return (is_ordered(pile_a, pile_b));
 }
 
@@ -99,7 +100,10 @@ int		reading_command(t_pile *pile_a, t_pile *pile_b)
 			exit(-1);
 		size = ft_strlen(line);
 		if (!size)
+		{
+			free(line);
 			return (executing(pile_a, pile_b, commands));
+		}
 		else if (size > 4 || !command_exist(line))
 			ft_putstr("Error.\n");
 		else

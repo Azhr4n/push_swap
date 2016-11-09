@@ -39,3 +39,16 @@ void		push_back_cl(t_char_list **list, t_char_list *new)
 		tmp->next = new;
 	}
 }
+
+void		free_clist(t_char_list *list)
+{
+	t_char_list	*ptr;
+
+	while (list)
+	{
+		ptr = list->next;
+		free(list->value);
+		free(list);
+		list = ptr;
+	}
+}

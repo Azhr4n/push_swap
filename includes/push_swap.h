@@ -60,6 +60,7 @@ void			print_list_reverse(t_list *last, char *name);
 */
 t_char_list		*create_cl(char *value);
 void			push_back_cl(t_char_list **list, t_char_list *new);
+void			free_clist(t_char_list *list);
 
 /*
 *** process.c

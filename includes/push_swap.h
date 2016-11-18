@@ -13,6 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# define MAXINT_VAL 2147483647
+# define MININT_VAL -2147483648
+
 typedef struct	s_list
 {
 	int			value;

@@ -48,6 +48,8 @@ void	rotate(t_pile *pile)
 {
 	t_list	*tmp;
 
+	if (pile->nb_elem <= 0)
+		return ;
 	tmp = pile->last;
 	while (tmp->previous != NULL)
 	{
@@ -62,6 +64,8 @@ void	r_rotate(t_pile *pile)
 {
 	t_list	*tmp;
 
+	if (pile->nb_elem <= 0)
+		return ;
 	tmp = pile->list;
 	while (tmp->next != NULL)
 	{
